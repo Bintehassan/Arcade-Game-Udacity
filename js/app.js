@@ -34,7 +34,12 @@ Enemy.prototype.update = function(dt) {
     {
         player.reset();
         score -= 1;
-        //if score = 0 show modal
+        if (score <= 0) {
+            player.reset();
+            score = 0
+            alert("Game Over!");
+        }
+        
     }
     
 };
@@ -73,21 +78,20 @@ Player.prototype.update = function(dt) {
         this.y = 400;
     }
     if (this.y < 0) {
-        this.y = 0; 
-    }
-    if (this.y <= 0) {
+        this.y = 0;
         setTimeout(() => {
             player.reset();
             score += 1;
             }, 300);
-            //if score = 50 show modal
+            //if score = 50 show modal 
     }
+    
 
 };
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    // drawScore();
+    drawScore();
 };
 
 
