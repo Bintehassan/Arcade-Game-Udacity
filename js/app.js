@@ -82,7 +82,7 @@ Player.prototype.update = function(dt) {
         setTimeout(() => {
             player.reset();
             score += 1;
-            }, 300);
+            }, 100);
             //if score = 50 show modal 
     }
     
