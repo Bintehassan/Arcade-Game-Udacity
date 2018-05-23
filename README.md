@@ -1,6 +1,42 @@
-frontend-nanodegree-arcade-game
-===============================
+<!-- TOC -->
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+- [Arcade Game Udacity FEND Project](#arcade-game-udacity-fend-project)
+    - [Game Description](#game-description)
+    - [How to Play](#how-to-play)
+    - [Install and run](#install-and-run)
+    - [TODO](#todo)
+    - [Author](#author)
+    - [Contribution](#contribution)
+    - [Dependencies](#dependencies)
+    - [Resources](#resources)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+<!-- /TOC -->
+
+# Arcade Game Udacity FEND Project
+## Game Description
+A fun game to challenge you to dodge the bugs and reach the water stream to score points. 
+## How to Play
+The player should reach the water stream without hitting the bugs. The bugs have a variable speed. Everytime, the player hits a bug, score decreases by 1. Everytime the player reaches water, score gets incremented by 1.
+## Install and run
+1. Clone the repository https://github.com/Bintehassan/Arcade-Game-Udacity
+2. Open the index.html in your browser
+3. Play the game
+## TODO
+1. A scoring system, with lives
+2. A working modal to show final score and a final message. The modal will replace the current alert(s)
+## Author
+The basic game engine, canvas and resources i.e. images were provided by UDACITY. It was not mandatory to edit the html or css files
+## Contribution
+* Udacity
+* W3Schools
+* MDN Web Docs
+* Alan (my mentor)
+## Dependencies
+* HTML
+* CSS
+* Javascript ES6
+## Resources
+* W3Schools
+* MDN Web Docs
+* UDACITY teaching material
+
