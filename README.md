@@ -23,7 +23,8 @@ The player should reach the water stream without hitting the bugs. The bugs have
 3. Play the game
 ## TODO
 1. A scoring system, with lives
-2. A working modal to show final score and a final message. The modal will replace the current alert(s)
+2. A refined modal to show final score and a final message. 
+3. Refined code with gameReset, gameInit functions to make the code more efficient
 ## Author
 The basic game engine, canvas and resources i.e. images were provided by UDACITY. It was not mandatory to edit the html or css files
 ## Contribution

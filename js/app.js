@@ -1,4 +1,12 @@
 let score = 0;
+// Get the modal
+let modal = document.getElementById('myModal');
+
+// Get the button that starts the game again and resets the whole board
+let btn = document.getElementById("play-again");
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
 
 // Enemies our player must avoid
 let Enemy = function(x,y, speed) {
@@ -20,9 +28,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.speed * dt;
 
+    //Bugs appearing headfirst on the screen with random speeds
     if (this.x >= 505) {
         this.x = -60;
-        this.speed = 70 + Math.floor((Math.random() * 100) + 1); //Source: https://www.w3schools.com/jsref/jsref_random.asp
+        this.speed = 100 + Math.floor((Math.random() * 100) + 1); //Source: https://www.w3schools.com/jsref/jsref_random.asp
     }
 
     //Collision - Source: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
@@ -37,7 +46,9 @@ Enemy.prototype.update = function(dt) {
         if (score <= 0) {
             player.reset();
             score = 0
-            alert("Game Over!");
+            modal.style.display = "block";
+            document.getElementById('winning').textContent = `Awh Man! Your score is ZERO!!. Watch this space for our next update introducing new levels and features. Thank you!`;
+            dismissModal();
         }
         
     }
@@ -67,7 +78,8 @@ let Player = function (x,y) {
 
 // This class requires an update(), render() and a handleInput() method.
 Player.prototype.update = function(dt) {
-   //To keep the player on canvas all the time (Credit: My mentor Alan)
+   
+    //To keep the player on canvas all the time (Credit: My mentor Alan)
     if (this.x > 400) {
         this.x = 400;
     }
@@ -82,16 +94,18 @@ Player.prototype.update = function(dt) {
         setTimeout(() => {
             player.reset();
             score += 1;
+            if (score === 10) {
+                modal.style.display = "block";
+                document.getElementById('winning').textContent = `Your score is ${score}. Watch this space for our next update introducing new levels and features. Thank you!`;
+                dismissModal();
+                }
             }, 100);
-            //if score = 50 show modal 
     }
-    
 
 };
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    drawScore();
 };
 
 
@@ -120,8 +134,6 @@ Player.prototype.reset = function () {
     this.y = 400;
 };
 
-
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [new Enemy(0, 60, 50), new Enemy(0, 140, 50), new Enemy(0, 225, 50)];
@@ -142,4 +154,30 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+// To dismiss the modal
+function dismissModal () {
+
+    //Play again button restarts the game and removes the modal
+    btn.onclick = function() {
+    modal.style.display = "none";
+    player.reset();
+    score = 0;
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    player.reset();
+    score = 0;
+    }       
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            player.reset();
+            score = 0;
+        }
+    }
+}
 
