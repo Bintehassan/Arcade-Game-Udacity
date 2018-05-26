@@ -20,7 +20,7 @@ The player should reach the water stream without hitting the bugs. The bugs have
 ## Install and run
 1. Clone the repository https://github.com/Bintehassan/Arcade-Game-Udacity
 2. Open the index.html in your browser
-3. Play the game
+3. Or play the game here https://bintehassan.github.io/Arcade-Game-Udacity/
 ## TODO
 1. A scoring system, with lives
 2. A refined modal to show final score and a final message. 
